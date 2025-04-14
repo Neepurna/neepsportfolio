@@ -10,12 +10,12 @@ interface GalleryItem {
 
 interface Project {
   title: string;
-  description: string;
-  detailedDescription: string;
+  description?: string;
+  detailedDescription?: string;
   stack: string[];
   image: string;
   gallery: GalleryItem[];
-  link?: string; // Add optional link property
+  link?: string;
 }
 
 // Corrected ModalProps interface

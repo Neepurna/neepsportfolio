@@ -1,33 +1,41 @@
 import { Player } from '@lottiefiles/react-lottie-player';
+import { useState } from 'react';
 import Quiz from './Quiz';
+import Modal from './Modal';
 import './App.css';
 
-// Simplified tech logo mapping - only keeping what's needed for Artstation
-const techLogos: Record<string, string> = {
-  'Blender': '/icons/blender.svg',
-  'Photoshop': '/icons/photoshop.svg',
-};
-
-// Define types for gallery items
+// Define types for gallery items - ensuring it matches with Modal.tsx
 interface GalleryItem {
   type: 'image' | 'video';
   src: string;
   alt: string;
 }
 
-// Define project interface
+// Update Project interface to match Modal.tsx requirements
 interface Project {
   id: string;
   title: string;
   category: string;
   image: string;
   url?: string;
+  description?: string;
   detailedDescription?: string;
-  stack?: string[];
-  gallery?: GalleryItem[];
+  stack: string[]; // Changed from optional to required to match Modal.tsx
+  gallery: GalleryItem[]; // Changed from optional to required to match Modal.tsx
+  link?: string; // Added to match Modal.tsx 
 }
 
 function App() {
+  // Add state for handling modal
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Define the handleProjectClick function
+  const handleProjectClick = (project: Project) => {
+    setSelectedProject(project);
+    setIsModalOpen(true);
+  };
+
   // Define gallery media for Artstation section
   const galleryMedia = [
     { type: 'video', src: '/videos/0002.mp4', alt: 'Gallery video 2' },
@@ -45,9 +53,6 @@ function App() {
     { type: 'image', src: '/gallery/10.jpg', alt: 'Gallery item 10' },
   ];
   
-  // Define tools used in Artstation section
-  const artstationTools = ['Blender', 'Photoshop'];
-
   // Define projects data
   const projects: Project[] = [
     {
@@ -55,14 +60,18 @@ function App() {
       title: 'Inclivo',
       category: 'Full Stack Mobile App',
       image: '/images/inclivo-static.png',
-      url: 'https://github.com/Neepurna/Seenafile', // Change this path to reference your new image
+      url: 'https://github.com/Neepurna/Seenafile',
+      stack: ['React Native', 'Node.js', 'MongoDB'], // Added required stack
+      gallery: [{ type: 'image', src: '/images/inclivo-static.png', alt: 'Inclivo App' }], // Added required gallery
     },
     {
       id: 'project-2',
       title: 'Hanumanverse',
       category: 'Web3 FrontEnd Development',
-      image: '/images/hanumanverse-static.png', // Change this path to reference your new image
-      url:'https://hanumanuniverse.com/',
+      image: '/images/hanumanverse-static.png',
+      url: 'https://hanumanuniverse.com/',
+      stack: ['React', 'Web3.js', 'Solidity'], // Added required stack
+      gallery: [{ type: 'image', src: '/images/hanumanverse-static.png', alt: 'Hanumanverse' }], // Added required gallery
     },
     {
       id: 'project-3',
@@ -70,6 +79,8 @@ function App() {
       category: 'Educatinoal Web Game',
       image: '/images/Kidorama.png',
       url: 'https://simmer.io/@shibakriwo/kidorama-demo-0-2',
+      stack: ['Unity', 'C#', 'WebGL'], // Added required stack
+      gallery: [{ type: 'image', src: '/images/Kidorama.png', alt: 'Kidorama Game' }], // Added required gallery
     },
     {
       id: 'project-4',
@@ -77,6 +88,8 @@ function App() {
       category: 'VR Game',
       image: '/images/VR.png',
       url: 'https://www.linkedin.com/posts/neepurna_work-experience-opportunity-activity-7084882822053732353-E1Qc?utm_source=share&utm_medium=member_desktop&rcm=ACoAABUeRqMBdzVy1cvSDKNiKeWxXe71WbXIqZc',
+      stack: ['Unity', 'C#', 'VR'], // Added required stack
+      gallery: [{ type: 'image', src: '/images/VR.png', alt: 'Foodmandu VR Game' }], // Added required gallery
     },
   ];
 
@@ -362,6 +375,11 @@ function App() {
             ))}
         </div>
       </footer>
+      <Modal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        project={selectedProject} 
+      />
     </div>
   );
 }
