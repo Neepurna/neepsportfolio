@@ -22,6 +22,9 @@ interface Project {
   category: string;
   image: string;
   url?: string;
+  detailedDescription?: string;
+  stack?: string[];
+  gallery?: GalleryItem[];
 }
 
 function App() {
