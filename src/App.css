@@ -1,0 +1,1313 @@
+.portfolio-container {
+  max-width: 800px; /* Limit width for readability */
+  margin: -3.75rem auto 0; /* Adjusted negative top margin to move down by 5% */
+  padding: 2rem;
+  text-align: left; /* Align text to the left */
+}
+
+.header, .footer {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.header h1 {
+    margin-bottom: 0.1em;
+}
+
+.header p {
+    margin-top: 0;
+    font-size: 1.1em;
+    opacity: 0.8;
+    margin-bottom: 1rem; /* Add space below subtitle */
+}
+
+/* Header Social Links Styles */
+.header-social-links {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem; /* Space between icons */
+}
+
+.header-social-links a {
+  display: inline-block; /* Ensure links behave correctly */
+  line-height: 0; /* Prevent extra space */
+  transition: transform 0.2s ease; /* Add subtle hover effect */
+}
+
+.header-social-links a:hover {
+  transform: scale(1.1); /* Slightly enlarge on hover */
+  opacity: 1; /* Override default link hover opacity if needed */
+}
+
+.social-icon {
+  width: 28px; /* Adjust size as needed */
+  height: 28px;
+  filter: brightness(0) invert(1); /* White color without glow */
+  transition: filter 0.3s ease; /* Add transition for smooth effect */
+}
+
+.header-social-links a:hover .social-icon {
+  filter: brightness(0) invert(0.3) sepia(1) saturate(10) hue-rotate(325deg); /* Red filter instead of glow */
+}
+
+.about {
+    margin-bottom: 3rem;
+    /* Remove text-align if previously set */
+}
+
+/* New styles for about section layout */
+.about-content {
+    display: flex;
+    align-items: center; /* Vertically align text and Lottie */
+    gap: 2rem; /* Space between text and Lottie */
+}
+
+.about-text {
+    flex: 1; /* Allow text to take available space */
+}
+
+.about-lottie {
+    flex-shrink: 0; /* Prevent Lottie player from shrinking */
+    /* Add any specific alignment or styling if needed */
+}
+
+.about-text p {
+  font-size: 1.2em; /* 20% larger than the base font size */
+}
+
+/* Scroll Down Arrow Styles */
+.scroll-down-arrow {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+  margin-top: -1rem;
+  cursor: pointer;
+}
+
+.scroll-down-arrow svg {
+  width: 40px;
+  height: 40px;
+  fill: none;
+  stroke: white;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  animation: arrow-flicker 2s infinite;
+}
+
+@keyframes arrow-flicker {
+  0%, 100% { opacity: 1; }
+  40% { opacity: 0.4; }
+  42% { opacity: 0.9; }
+  43% { opacity: 0.2; }
+  45% { opacity: 0.8; }
+  46% { opacity: 0.4; }
+  48% { opacity: 1; }
+  50% { opacity: 0.5; }
+  60% { opacity: 0.7; }
+  80% { opacity: 1; }
+}
+
+/* Modern Down Arrow Styles */
+.down-arrow-container {
+  display: flex;
+  justify-content: center;
+  margin: 2rem 0;
+  margin-top: -10%; /* Move the arrow 10% upwards for better positioning */
+  cursor: pointer;
+  padding: 10px;
+}
+
+.modern-down-arrow {
+  width: 48px;
+  height: 48px;
+  position: relative;
+  animation: arrow-pulse 2s infinite;
+}
+
+.modern-down-arrow svg {
+  width: 100%;
+  height: 100%;
+  stroke: white;
+  filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  transition: all 0.3s ease;
+}
+
+.down-arrow-container:hover .modern-down-arrow svg {
+  filter: none; /* Remove glow */
+  stroke: #cc2d2d; /* Red color instead */
+  transform: translateY(5px);
+}
+
+@keyframes arrow-pulse {
+  0%, 100% { 
+    opacity: 1;
+    filter: drop-shadow(0 0 8px rgba(204, 45, 45, 0.8));
+  }
+  40% { 
+    opacity: 0.4;
+    filter: drop-shadow(0 0 4px rgba(204, 45, 45, 0.4));
+  }
+  50% { 
+    opacity: 1;
+    filter: drop-shadow(0 0 16px rgba(204, 45, 45, 1));
+  }
+  60% { 
+    opacity: 0.6;
+    filter: drop-shadow(0 0 6px rgba(204, 45, 45, 0.6));
+  }
+  70% { 
+    opacity: 1;
+    filter: drop-shadow(0 0 12px rgba(204, 45, 45, 0.9));
+  }
+}
+
+/* Stats Section Styles */
+.stats-section {
+  margin: 5rem 0;
+  opacity: 0;
+  animation: flicker-in 1.5s ease-out 0.2s forwards; /* Match the flickering animation */
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 4rem;
+}
+
+.stat-card {
+  background-color: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.stat-card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stat-card:hover::after {
+  opacity: 1;
+}
+
+.stat-card.active {
+  background-color: #cc2d2d; /* Red active card like in the image */
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 0 20px rgba(204, 45, 45, 0.3);
+}
+
+.stat-label {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.stat-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 1.5rem;
+  color: white;
+}
+
+.stat-icon svg {
+  width: 100%;
+  height: 100%;
+  stroke: currentColor;
+  filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+}
+
+.stat-description {
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.learn-more {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  align-self: flex-start;
+}
+
+.learn-more:hover {
+  color: #cc2d2d; /* Red text instead of white with glow */
+  text-shadow: none; /* Remove glow effect */
+  transform: translateX(3px);
+}
+
+.stats-counters {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1rem;
+  margin-top: 2rem;
+  background-color: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.counter-item {
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.counter-value {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #cc2d2d; /* Match active card red color */
+  margin-bottom: 0.5rem;
+  text-shadow: none; /* Remove glow effect */
+}
+
+.counter-label {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Responsive adjustments for stats section */
+@media (max-width: 992px) {
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .stats-counters {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .stats-counters {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* --- Artstation Gallery Styles --- */
+.artstation-gallery {
+  margin-bottom: 3rem; /* Spacing below the gallery */
+}
+
+.artstation-gallery h2 {
+  text-align: center; /* Center the gallery title */
+  margin-bottom: 0.5rem; /* Reduced to bring subtext closer */
+  color: #cc2d2d; /* Red color */
+  text-shadow: none; /* Remove glow effect */
+}
+
+.tools-subtext {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+  font-size: 0.9em;
+  opacity: 0.7;
+  font-style: italic;
+}
+
+.gallery-grid {
+  display: grid; /* Change from flex to grid */
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Smaller minmax value */
+  gap: 0.5rem; /* Reduced gap between items */
+  grid-auto-rows: auto; /* Allow rows to size based on content */
+  grid-auto-flow: dense; /* Fill in gaps more efficiently */
+  position: relative; /* For absolute positioning of expanded items */
+}
+
+.gallery-item {
+  line-height: 0;
+  overflow: hidden; /* Hide any overflow */
+  border-radius: 4px; /* Match this with the image border-radius */
+  background-color: #111; /* Dark background for images with transparency */
+  position: relative; /* For z-index stacking */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  z-index: 1; /* Default z-index */
+}
+
+.gallery-image {
+  display: block;
+  width: 100%; /* Ensure image fills the grid cell */
+  height: 100%; /* Fill the container */
+  object-fit: cover; /* Cover the container while maintaining aspect ratio */
+  border-radius: 4px;
+  box-shadow: none; /* Remove shadow to eliminate space perception */
+  transition: transform 0.3s ease, opacity 0.2s ease;
+}
+
+/* Enhanced hover effect for gallery items - increase scale by 80% */
+.gallery-item:hover {
+  z-index: 10; /* Bring hovered item to front */
+  transform: scale(1.8); /* Increase to 80% larger for dramatic effect */
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Deeper shadow */
+}
+
+.gallery-item:hover .gallery-image {
+  transform: scale(1.05); /* Additional scale for the image itself */
+}
+
+/* Add a subtle darkening effect to non-hovered items */
+.gallery-grid:hover .gallery-item:not(:hover) {
+  opacity: 0.7; /* Slightly dim non-hovered items */
+}
+
+/* Media query for larger screens to fit more columns if desired */
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); /* Even smaller columns on larger screens */
+  }
+  
+  .gallery-item:hover {
+    transform: scale(1.12); /* Even more dramatic on larger screens */
+  }
+}
+
+.footer {
+    margin-top: 3rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2); /* Separator line */
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem; /* Space between links */
+}
+
+/* Text highlight styles - consistent intensity */
+.highlight-1, .highlight-2, .highlight-3 {
+  color: #cc2d2d; /* Changed to solid red instead of white with glow */
+  font-weight: 600;
+  text-shadow: none; /* Removed glow effect */
+  letter-spacing: 0.02em;
+}
+
+/* Enhanced Modal styles for gallery */
+.modal-content {
+  max-width: 90%;
+  max-height: 90vh;
+  width: auto;
+  background-color: rgba(20, 20, 20, 0.95);
+  border-radius: 8px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-modal.active .modal-content {
+  transform: scale(1);
+}
+
+/* Gallery container */
+.gallery-container {
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Style for both images and videos */
+.gallery-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+/* Modal information */
+.modal-info {
+  padding: 1.5rem;
+  color: white;
+}
+
+.modal-info h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+/* Navigation buttons */
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.3s;
+  z-index: 2;
+}
+
+.gallery-nav:hover {
+  background: rgba(204, 45, 45, 0.7); /* Solid red background instead of glow */
+}
+
+.gallery-nav.prev {
+  left: 15px;
+}
+
+.gallery-nav.next {
+  right: 15px;
+}
+
+/* Dots for navigation */
+.gallery-dots {
+  position: absolute;
+  bottom: 15px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+/* Enhanced close button */
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  z-index: 3;
+  transition: background 0.3s;
+}
+
+.modal-close:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+/* Project Modal Styles */
+.project-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  width: 80%;
+  max-width: 1200px;
+  max-height: 90vh;
+  background-color: #111;
+  border-radius: 8px;
+  overflow: hidden;
+  animation: scaleIn 0.3s ease;
+  position: relative;
+  z-index: 1001; /* Higher than backdrop */
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+.gallery-container {
+  width: 100%;
+  height: 70vh;
+  position: relative;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gallery-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.gallery-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background 0.2s;
+  z-index: 10;
+}
+
+.gallery-nav:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+.gallery-nav.prev {
+  left: 20px;
+}
+
+.gallery-nav.next {
+  right: 20px;
+}
+
+.gallery-dots {
+  position: absolute;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.gallery-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.gallery-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.modal-info {
+  padding: 20px;
+  color: white;
+}
+
+.modal-close {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-close:hover {
+  background: rgba(255, 255, 255, 0.3);
+}
+
+/* Modal styles using React Portal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-container {
+  width: 85vw; /* Increase width */
+  height: 85vh; /* Increase height */
+  max-width: 1400px; /* Increase max-width */
+  max-height: 90vh; /* Keep max-height reasonable */
+  background-color: rgba(10, 10, 10, 0.98); /* Slightly more opaque */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  overflow: hidden; /* Change from auto to hidden */
+  animation: scaleIn 0.3s ease;
+  position: relative;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Keep column layout */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { transform: scale(0.9); }
+  to { transform: scale(1); }
+}
+
+.modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-shrink: 0; /* Prevent header from shrinking */
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.4em;
+}
+
+.modal-body {
+  display: flex;
+  flex-grow: 1; /* Allow body to fill remaining space */
+  overflow: hidden; /* Prevent body overflow */
+}
+
+.modal-gallery-section {
+  flex: 2; /* Give gallery more space */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-right: 1px solid rgba(255, 255, 255, 0.1); /* Separator */
+}
+
+.modal-details-section {
+  flex: 1; /* Give details less space */
+  padding: 1.5rem;
+  overflow-y: auto; /* Allow scrolling for long descriptions */
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.modal-details-section h4 {
+  margin-top: 0;
+  margin-bottom: 0.5em;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 1.1em;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 0.3em;
+}
+
+.modal-details-section p {
+  margin-bottom: 1.5em;
+  line-height: 1.6;
+  font-size: 0.95em;
+}
+
+.detailed-description {
+  line-height: 1.6; /* Add a property to avoid empty ruleset */
+}
+
+.stack-info {
+  font-style: italic;
+  opacity: 0.8;
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  flex-grow: 1; /* Allow gallery container to fill space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Darker background */
+  border-radius: 0;
+  overflow: hidden;
+}
+
+/* Remove modal-info styles as they are replaced by modal-details-section */
+/* .modal-info { ... } */
+
+.modal-close-btn {
+  position: static; /* Remove absolute positioning */
+  width: auto;
+  height: auto;
+  border-radius: 4px; /* Match other elements */
+  background: transparent; /* Make background transparent */
+  color: rgba(255, 255, 255, 0.7); /* Adjust color */
+  border: none;
+  font-size: 24px; /* Increase size */
+  cursor: pointer;
+  padding: 0.2em 0.5em; /* Add some padding */
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+  color: white;
+  background-color: rgba(204, 45, 45, 0.2); /* Subtle background on hover */
+}
+
+.project-gallery h3 {
+  margin-top: 0;
+  text-align: center;
+  margin-bottom: 1rem;
+  padding: 1rem 1rem 0 1rem; /* Add padding back here */
+  font-size: 1.2em; /* Adjust size */
+}
+
+.gallery-container {
+  position: relative;
+  width: 100%;
+  flex-grow: 1; /* Allow gallery to take up available space */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.3); /* Darker background for media */
+  border-radius: 0; /* Remove radius */
+  overflow: hidden;
+}
+
+.gallery-media {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.modal-info {
+  padding: 1rem; /* Consistent padding */
+  color: rgba(255, 255, 255, 0.8); /* Slightly softer text color */
+  font-size: 0.9em;
+  flex-shrink: 0; /* Prevent info section from shrinking */
+}
+
+.modal-info p {
+  margin: 0.5em 0;
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 15px; /* Adjust position */
+  right: 15px; /* Adjust position */
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.modal-close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.modal-title-area {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.project-link {
+  margin-top: 0.3rem;
+  font-size: 0.85em;
+}
+
+.project-link a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+}
+
+.project-link a:hover {
+  color: white;
+  text-decoration: underline;
+}
+
+.link-arrow {
+  margin-left: 0.3em;
+  font-size: 1.1em;
+}
+
+/* Tech Logo Styles - Updated for continuous glow */
+.tech-logo-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: One;
+  margin-bottom: 1.5rem;
+}
+
+.tech-logo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  /* Remove hover transition */
+}
+
+/* Remove hover transform effect
+.tech-logo-item:hover {
+  transform: translateY(-5px);
+}
+*/
+
+.tech-logo {
+  width: 40px;
+  height: 40px;
+  filter: brightness(0) invert(0.3) sepia(1) saturate(10) hue-rotate(325deg); /* Red filter instead of glow */
+  transition: filter 0.3s ease;
+}
+
+/* Remove different hover state since we want constant glow
+.tech-logo-item:hover .tech-logo {
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.9));
+}
+*/
+
+.tech-name {
+  margin-top: 0.5rem;
+  font-size: 0.8em;
+  opacity: 0.8;
+}
+
+/* Project tech logos in project cards - Updated for continuous glow */
+.project-tech-logos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 0.4rem 0 0.8rem 0;
+}
+
+.project-tech-logo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-tech-logo .tech-logo {
+  width: 24px;
+  height: 24px;
+  filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.7)); /* Apply white color and glow by default */
+  /* Remove transition as we don't need hover effects */
+}
+
+/* Remove hover state since we want constant glow
+.project-tech-logo:hover .tech-logo {
+  filter: brightness(0) invert(1) drop-shadow(0 0 5px rgba(255, 255, 255, 0.9));
+  transform: scale(1.2);
+}
+*/
+
+/* Existing tech logo styles in the modal remain for future use */
+.tech-logo-container {
+  /* ...existing code... */
+}
+
+/* Build Stack header */
+.build-stack-header {
+  font-size: 0.9em;
+  margin: 0.7rem 0 0.3rem 0;
+  opacity: 0.75;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* Gallery video styles */
+.gallery-video-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.gallery-video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Cover like the images */
+  border-radius: 4px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.gallery-item:hover .gallery-video {
+  transform: scale(1.05); /* Same effect as images */
+}
+
+.video-play-indicator {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 10px 0 10px 20px;
+  border-color: transparent transparent transparent rgba(255, 255, 255, 0.8);
+  pointer-events: none; /* Allow clicks to pass through */
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+/* Hide play indicator on hover */
+.gallery-item:hover .video-play-indicator {
+  opacity: 0; /* Hide completely on hover */
+}
+
+/* Flickering Animation Keyframes */
+@keyframes flicker-in {
+  0% { opacity: 0; }
+  10% { opacity: 0; }
+  12% { opacity: 1; }
+  15% { opacity: 0.2; }
+  20% { opacity: 1; }
+  25% { opacity: 0.3; }
+  30% { opacity: 1; }
+  35% { opacity: 0.1; }
+  40% { opacity: 0.6; }
+  42% { opacity: 0; }
+  45% { opacity: 1; }
+  60% { opacity: 0.4; }
+  63% { opacity: 1; }
+  75% { opacity: 0.2; }
+  78% { opacity: 1; }
+  90% { opacity: 0.6; }
+  93% { opacity: 0; }
+  95% { opacity: 1; }
+  100% { opacity: 1; }
+}
+
+/* Apply flickering animation to main sections */
+.header,
+.about,
+.artstation-gallery,
+.footer {
+  opacity: 0; /* Start hidden */
+  animation: flicker-in 1.5s ease-out forwards; /* Apply animation */
+}
+
+/* Stagger the animation start times */
+.header { animation-delay: 0s; }
+.about { animation-delay: 0.15s; }
+.artstation-gallery { animation-delay: 0.3s; } /* Adjusted timing */
+.footer { animation-delay: 0.45s; } /* Adjusted timing */
+
+/* Projects Section Styles */
+.projects-section {
+  margin-bottom: 4rem;
+  opacity: 0;
+  animation: flicker-in 1.5s ease-out 0.25s forwards; /* Slightly delay after stats section */
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Regular section headers with glow */
+.section-header h2 {
+  font-size: 2rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.8rem;
+  color: #cc2d2d; /* Changed to red instead of white with glow */
+  text-shadow: none; /* Removed glow effect */
+}
+
+/* Featured Projects header - red color without glow */
+.projects-section .section-header h2 {
+  color: #cc2d2d; /* Red color */
+  text-shadow: none; /* Remove glow effect */
+}
+
+.section-description {
+  font-size: 1rem;
+  opacity: 0.7;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.project-item {
+  position: relative;
+  overflow: hidden;
+  border-radius: 4px;
+  background-color: #111;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+}
+
+.project-info {
+  padding: 1rem 1.5rem;
+  background-color: #111;
+}
+
+.project-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  border-bottom: 2px solid #cc2d2d; /* Added red border instead of glow */
+}
+
+.project-image-container {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+  filter: grayscale(100%) contrast(110%); /* Black and white effect */
+}
+
+.project-item:hover .project-image {
+  transform: scale(1.05);
+  filter: grayscale(70%) contrast(120%); /* Slightly less grayscale on hover */
+}
+
+.project-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1.5rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+  color: white;
+  opacity: 0.9;
+  transition: opacity 0.4s ease;
+  display: flex;
+  justify-content: center;
+}
+
+.project-item:hover .project-overlay {
+  opacity: 1;
+}
+
+.project-category {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 0.5rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.project-title {
+  font-size: 1.5rem;
+  margin: 0 0 0.5rem 0;
+  font-weight: 600;
+  color: #cc2d2d; /* Changed to red instead of text-shadow */
+  text-shadow: none; /* Removed glow effect */
+  letter-spacing: 0.02em;
+}
+
+.view-project {
+  font-size: 0.9rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  display: inline-block;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  color: white; /* Ensure link text is white */
+  text-decoration: none; /* Remove default underline for links */
+}
+
+.project-item:hover .view-project {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.see-all-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.see-all-btn {
+  background-color: transparent;
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.7rem 2rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.see-all-btn:hover {
+  border-color: #cc2d2d;
+  background-color: rgba(204, 45, 45, 0.2);
+  color: white;
+  /* Removed box-shadow glow */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+}
+
+/* Skills Section Styles */
+.skills-section {
+  margin: 2.5rem 0 4rem 0;
+  background-color: rgba(15, 15, 15, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  padding: 2rem;
+}
+
+.skills-title {
+  text-align: center;
+  font-size: 1.4rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 2rem;
+  color: #cc2d2d; /* Changed to red color */
+  text-shadow: none; /* Removed glow effect */
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 2rem;
+  justify-items: center;
+}
+
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+.skill-icon {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 0.8rem;
+  filter: brightness(0) invert(1); 
+  border-bottom: 2px solid #cc2d2d;
+  transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-icon {
+  filter: brightness(0) invert(1) drop-shadow(0 0 8px rgba(255, 255, 255, 0.8));
+  transform: translateY(-5px);
+}
+
+.skill-name {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* Responsive skills grid */
+@media (max-width: 768px) {
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Make View Project text more visible */
+.project-view-btn {
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.project-view-btn:hover {
+  background-color: rgba(204, 45, 45, 0.3);
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
+  border-color: rgba(255, 255, 255, 0.6);
+}

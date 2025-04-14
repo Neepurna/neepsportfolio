@@ -1,0 +1,75 @@
+:root {
+  font-family: 'Courier New', Courier, monospace; /* Monospaced font for a minimal look */
+  line-height: 1.6;
+  font-weight: 400;
+
+  color-scheme: dark; /* Force dark mode */
+  color: #ffffff; /* White text */
+  background-color: #000000; /* Black background */
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Grainy background effect */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    /* Increased baseFrequency from 0.8 to 1.5 for finer grain */
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><filter id="noise"><feTurbulence type="fractalNoise" baseFrequency="1.5" numOctaves="4" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noise)"/></svg>');
+    opacity: 0.05; /* Adjust opacity for grain intensity */
+    pointer-events: none; /* Ensure it doesn't interfere with interaction */
+    z-index: -1; /* Place it behind content */
+}
+
+a {
+  font-weight: 500;
+  color: #ffffff; /* Keep white links */
+  text-decoration: underline;
+  transition: color 0.25s;
+}
+a:hover {
+  color: #cc2d2d; /* Changed to solid red color instead of opacity change */
+  opacity: 1; /* Full opacity */
+}
+
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center; /* Center content horizontally */
+  align-items: flex-start; /* Align content to the top */
+  min-height: 100vh;
+  padding-top: 4rem; /* Add some padding at the top */
+}
+
+h1, h2, h3 {
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h2 {
+    font-size: 1.8em;
+    margin-top: 2em;
+}
+
+h3 {
+    font-size: 1.3em;
+}
+
+/* Remove button styles as they are not used */
+/* button { ... } */
+/* button:hover { ... } */
+/* button:focus, button:focus-visible { ... } */
+
+/* Remove light theme overrides */
+/* @media (prefers-color-scheme: light) { ... } */
