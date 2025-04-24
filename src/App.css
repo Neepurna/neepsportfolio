@@ -1311,3 +1311,134 @@
   text-shadow: 0 0 8px rgba(255, 255, 255, 0.8);
   border-color: rgba(255, 255, 255, 0.6);
 }
+
+/* Mobile Responsiveness Improvements */
+@media (max-width: 600px) {
+  .portfolio-container {
+    padding: 1rem;
+    margin: -2rem auto 0;
+  }
+
+  .header h1 {
+    font-size: 1.8rem;
+  }
+
+  .about-content {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .about-lottie {
+    width: 100%;
+    max-width: 200px;
+    margin: 0 auto;
+  }
+
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
+
+  .gallery-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  }
+
+  .gallery-item:hover {
+    transform: scale(1.1); /* Less dramatic scale on mobile */
+  }
+
+  .modern-down-arrow {
+    width: 36px;
+    height: 36px;
+  }
+
+  .modal-container {
+    width: 95vw; /* Wider on mobile */
+    height: 95vh;
+  }
+
+  .modal-body {
+    flex-direction: column; /* Stack gallery and details on mobile */
+  }
+
+  .modal-gallery-section {
+    flex: none;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Horizontal separator */
+    min-height: 40vh;
+  }
+
+  .modal-title-area {
+    max-width: 80%; /* Allow space for the close button */
+  }
+  
+  .project-title {
+    font-size: 1.2rem;
+  }
+
+  .stat-label, .counter-label {
+    font-size: 0.9rem;
+  }
+
+  .stat-description {
+    font-size: 0.8rem;
+  }
+
+  .gallery-nav {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+/* Larger phones and small tablets */
+@media (min-width: 601px) and (max-width: 767px) {
+  .portfolio-container {
+    padding: 1.5rem;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Fix for touch devices hover issues */
+@media (hover: none) {
+  .gallery-item:hover {
+    transform: none;
+  }
+  
+  .gallery-grid:hover .gallery-item:not(:hover) {
+    opacity: 1;
+  }
+  
+  .skill-item:hover {
+    transform: none;
+  }
+  
+  .project-item:hover {
+    transform: none;
+  }
+  
+  /* Create a touch-based class for JS to toggle instead */
+  .touch-active {
+    transform: scale(1.1);
+    z-index: 10;
+  }
+}
+
+/* Better scrolling on mobile */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+  }
+  
+  body {
+    position: relative;
+    width: 100%;
+  }
+}

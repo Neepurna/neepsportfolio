@@ -11,6 +11,9 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* Custom viewport height variable for mobile */
+  --vh: 1vh;
 }
 
 /* Grainy background effect */
@@ -64,6 +67,35 @@ h2 {
 
 h3 {
     font-size: 1.3em;
+}
+
+/* Use the custom vh variable for elements that need accurate height on mobile */
+.modal-overlay, .project-modal, .quiz-container {
+  height: calc(100 * var(--vh));
+}
+
+/* Mobile-friendly font sizes */
+@media (max-width: 767px) {
+  h1 {
+    font-size: 2em;
+  }
+  
+  h2 {
+    font-size: 1.5em;
+  }
+  
+  h3 {
+    font-size: 1.2em;
+  }
+  
+  body {
+    font-size: 0.95em;
+  }
+}
+
+/* Touch-specific styles */
+.touch-device .gallery-item {
+  -webkit-tap-highlight-color: transparent;
 }
 
 /* Remove button styles as they are not used */
