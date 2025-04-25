@@ -187,25 +187,34 @@ const Quiz = () => {
         
         {gameOver && (
           <div className="game-over">
-            <div className="message">Game Over!</div>
-            <div className="sub-message">Score: {score} in {formatTime(time)}</div>
-            {score > 0 && (
-              <button 
-                className="share-btn" 
-                onClick={handleShareHighScore}
-              >
-                Send High Score
-              </button>
-            )}
-            <button 
-              className="restart-btn" 
-              onClick={(e) => {
-                e.stopPropagation();
-                startGame();
-              }}
-            >
-              Try Again
-            </button>
+            <div className="completion-layout">
+              <div className="result-container">
+                <div className="message">Game Over!</div>
+                <div className="sub-message">Score: {score} in {formatTime(time)}</div>
+                {score > 0 && (
+                  <button 
+                    className="share-btn" 
+                    onClick={handleShareHighScore}
+                  >
+                    Send High Score
+                  </button>
+                )}
+                <button 
+                  className="restart-btn" 
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    startGame();
+                  }}
+                >
+                  Try Again
+                </button>
+              </div>
+              <img 
+                src="/Cartoon-Characters/Game-Over.png" 
+                alt="Game Over" 
+                className="game-over-image"
+              />
+            </div>
           </div>
         )}
         
