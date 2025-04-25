@@ -68,7 +68,10 @@
 
 .about-lottie {
     flex-shrink: 0; /* Prevent Lottie player from shrinking */
-    /* Add any specific alignment or styling if needed */
+    margin-top: -5%; /* Negative value to move UP by 5% */
+    position: relative; /* Needed for the negative margin to work properly */
+    z-index: 1; /* Ensure it appears over other elements if needed */
+    transform: translateY(-20px); /* Additional upward movement */
 }
 
 .about-text p {

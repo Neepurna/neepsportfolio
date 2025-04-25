@@ -168,7 +168,7 @@ const Quiz = () => {
                 alt="Tech icon to guess" 
                 className="glowing-icon"
               />
-              <div className="hint-text">Hint: Type the name of the technology shown in the image</div>
+              {/* Removed hint text from here */}
             </div>
             
             <form onSubmit={handleSubmit} className="answer-form">
@@ -211,25 +211,35 @@ const Quiz = () => {
         
         {!isPlaying && !gameOver && score > 0 && (
           <div className="game-complete">
-            <div className="message">Great job!</div>
-            <div className="sub-message">
-              You got all {score} icons in {formatTime(time)}!
+            <div className="completion-layout">
+              <div className="result-container">
+                <div className="sub-message">
+                  You got all {score} icons in {formatTime(time)}!
+                </div>
+                <div className="success-buttons">
+                  <button 
+                    className="share-btn" 
+                    onClick={handleShareHighScore}
+                  >
+                    Send High Score
+                  </button>
+                  <button 
+                    className="restart-btn" 
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      startGame();
+                    }}
+                  >
+                    Play Again
+                  </button>
+                </div>
+              </div>
+              <img 
+                src="/Cartoon-Characters/Great-Job.png" 
+                alt="Great Job!" 
+                className="celebration-image"
+              />
             </div>
-            <button 
-              className="share-btn" 
-              onClick={handleShareHighScore}
-            >
-              Send High Score
-            </button>
-            <button 
-              className="restart-btn" 
-              onClick={(e) => {
-                e.stopPropagation();
-                startGame();
-              }}
-            >
-              Play Again
-            </button>
           </div>
         )}
       </div>
@@ -239,7 +249,16 @@ const Quiz = () => {
       </div>
       
       <div className="controls-help">
-        <p>Hint: Type the name of the technology shown in the image</p>
+        <p>Hint: Just scroll up to my <a 
+          href="#" 
+          onClick={(e) => {
+            e.preventDefault();
+            const skillsSection = document.querySelector('.skills-section');
+            if (skillsSection) {
+              skillsSection.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        >Skills & Technologies</a> section if you get stuck</p>
       </div>
 
       {showContact && (
